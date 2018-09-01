@@ -1,0 +1,72 @@
+.text{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
+#image{
+    /*width: 400px;*/
+    /*border: 1px solid burlywood;*/
+}
+.color{
+    width: 35px;
+    height: 35px;
+    border: 1px solid brown;
+    border-radius: 20px;
+    margin: 1px;
+    display: inline-block;
+}
+.active{
+    box-shadow: 0 0 5px black;
+}
+div.size, div.quantity{
+    display: none;
+}
+div.size .btn{
+    margin: 5px;
+    width: 70px;
+}
+
+
+
+
+
+
+div#colorWhite{
+    background-color: white;
+}
+div#colorBlack{
+    background-color: black;
+}
+div#colorBlue{
+    background-color: blue;
+}
+div#colorBrown{
+    background-color: brown;
+}
+div#colorDarkBlue{
+    background-color: darkblue;
+}
+div#colorGreen{
+    background-color: green;
+}
+div#colorGrey{
+    background-color: gray;
+}
+div#colorLightBlue{
+    background-color: lightblue;
+}
+div#colorPurple{
+    background-color: purple;
+}
+div#colorRed{
+    background-color: red;
+}
+div#colorRose{
+    background-color: rosybrown;
+}
+div#colorYellow{
+    background-color: yellow;
+}
+div#colorVirid{
+    background-color: #73e3af;
+}
+
