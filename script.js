@@ -74,7 +74,11 @@ window.onload = function () {
                                         let val = parseInt($("#quantity").val());
                                         if (val>=0&&val<=99) {
                                             $('#price').text(`Итого: ${val * price}грн.`);
+                                            if (val>4) {
+                                                $('#price').text(`Итого (-15%): ${val * price * 0.85}грн.`);
+                                            }
                                         }
+
                                     };
                                     // создаем функцию - +1 к количеству футболок с проверкой
                                     $("#plus").click(function () {
