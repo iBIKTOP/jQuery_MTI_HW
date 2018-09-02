@@ -19,17 +19,18 @@ window.onload = function () {
                 // console.log(data);
                 html = '<p class="text">Шаг №1: Выбор цвета футболки:</p>';
                 for (let i=0; i<data.length; i++){
-                    // console.log(data[i].name);
                     let id = `color${data[i].name}`;
+                    let color_id = `${data[i].id}`;
                     let image_src = `img/${data[i].name}.png`;
                     let color = data[i].name;
-                    if (color == 'White') html += `<div id="${id}" class="color active" data-color = "${color}" data-image_src="${image_src}"></div>`;
-                    else html += `<div id="${id}" class="color" data-color = "${color}" data-image_src="${image_src}"></div>`;
+                    if (color == 'White') html += `<div id="${id}" class="color active" data-color_id="${color_id}" data-color = "${color}" data-image_src="${image_src}"></div>`;
+                    else html += `<div id="${id}" class="color" data-color_id="${color_id}" data-color = "${color}" data-image_src="${image_src}"></div>`;
                 }
                 $('.colors').append(html);
 
                 // слушаем нажатие на цвет
                 $('.color').click(function() {
+                    let color_id = $(this).data('color_id');
                     let src = $(this).data('image_src');//ститываем ссылку на картинку с цветом футболки
                     let color = $(this).data("color");
                     $('#image').css('display','none').attr('src', src).fadeIn(1000); //устанавливаем картинку
@@ -48,9 +49,13 @@ window.onload = function () {
                             })
                             .done(function(data) {
                                 let html = '<p class="text">Шаг №2: Выбор размера футболки:</p>';
-                                for (let i=0; i<data[color.toLowerCase()].length; i++){
-                                    // console.log(data[color.toLowerCase()][i].name);
-                                    html += `<button type="button" class="btn btn-outline-dark" data-price = "${data[color.toLowerCase()][i].price}" ${getRandDisabled()}>${data[color.toLowerCase()][i].name}</button>`;
+                                for (let i=0; i<data.length; i++){
+                                    if (parseInt(color_id)==data[i].color_id) {
+                                        let arr = data[i].sizes;
+                                        for (let i=0; i<arr.length; i++){
+                                            html += `<button type="button" class="btn btn-outline-dark" data-price = "${arr[i].price}" ${getRandDisabled()}>${arr[i].size}</button>`;
+                                        }
+                                    }
                                 }
                                 $('div.size').css('display','none').empty().append(html).fadeIn(1000);
 
